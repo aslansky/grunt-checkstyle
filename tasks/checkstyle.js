@@ -12,15 +12,6 @@ module.exports = function(grunt) {
   var hint = require('jshint/lib/hint');
       jshint = require('jshint').JSHINT;
 
-  var dateToYMD = function (date) {
-    var d = date.getDate();
-    var m = date.getMonth()+1;
-    var y = date.getFullYear();
-    var hh = date.getHours();
-    var mm = date.getMinutes();
-    var ss = date.getSeconds();
-    return '' + y + '' + (m<=9?'0'+m:m) +''+ (d<=9?'0'+d:d) + (hh<=9?'0'+hh:hh) + '' + (mm<=9?'0'+mm:mm) + '' + (ss<=9?'0'+ss:ss);
-  };
   // ==========================================================================
   // TASKS
   // ==========================================================================
@@ -54,8 +45,7 @@ module.exports = function(grunt) {
     var checkstyle = grunt.helper('checkstyle', grunt.file.expandFiles(this.file.src), options, globals);
 
     // Checkstyle xml to dest
-    grunt.file.mkdir(this.file.dest);
-    grunt.file.write(this.file.dest + '/jshint_' + dateToYMD(new Date()) + '.xml', checkstyle);
+    grunt.file.write(this.file.dest, checkstyle);
 
     // Fail task if errors were logged.
     if (this.errorCount) { return false; }
