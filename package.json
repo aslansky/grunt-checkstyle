@@ -1,6 +1,6 @@
 {
   "name": "grunt-checkstyle",
-  "description": "Generates checkstyle reports with jshint",
+  "description": "Grunt task that generates checkstyle reports with jshint",
   "version": "0.1.0",
   "homepage": "https://github.com/aslansky/grunt-checkstyle",
   "author": {
