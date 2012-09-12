@@ -45,7 +45,8 @@ module.exports = function(grunt) {
     var checkstyle = grunt.helper('checkstyle', grunt.file.expandFiles(this.file.src), options, globals);
 
     // Checkstyle xml to dest
-    grunt.file.write(this.file.dest, checkstyle);
+    grunt.file.mkdir(this.file.dest);
+    grunt.file.write(this.file.dest + '/jshint.xml', checkstyle);
 
     // Fail task if errors were logged.
     if (this.errorCount) { return false; }
